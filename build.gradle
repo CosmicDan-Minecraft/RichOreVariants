@@ -1,0 +1,139 @@
+/*
+ * Based on Mantle (SlimeKnights) master build file (which is based on TConstruct's master build file)
+ * Credits: Sunstrike, ProgWML6, AbrarSyed, CosmicDan
+ */
+
+buildscript {
+
+    repositories {
+        jcenter()
+        maven { url = "http://files.minecraftforge.net/maven" }
+    }
+    dependencies {
+        classpath 'net.minecraftforge.gradle:ForgeGradle:2.3-SNAPSHOT'
+    }
+}
+
+plugins {
+	id 'io.franzbecker.gradle-lombok' version '1.10'
+}
+
+apply plugin: 'net.minecraftforge.gradle.forge'
+
+ext.configFile = file "build.properties"
+configFile.withReader {
+    // Load config.  It shall from now be referenced as simply config or project.config
+    def prop = new Properties()
+    prop.load(it)
+    project.ext.config = new ConfigSlurper().parse prop
+}
+
+group = "${config.group}"
+
+// sets version to the slimeKnights default version format
+// Finds and sets version data
+task buildInfo {
+    def cmd = "git rev-parse --short HEAD"
+    def proc = cmd.execute()
+    proc.waitFor()
+    if (proc.exitValue() == 0) {
+        ext.revision = proc.text.trim()
+    } else {
+        ext.revision = "GITBORK"
+    }
+
+    ext.buildNum = "devbuild.${project.buildInfo.revision}"
+}
+
+ext.artifact_version = 'NFG'
+artifact_version = "${config.mod_version}.${config.mod_buildnumber}.${project.buildInfo.buildNum}"
+if (System.getenv("RELEASEMODE") == "true") {
+    artifact_version = "${config.mod_version}.${config.mod_buildnumber}"
+}
+version = "${config.minecraft_version}-${artifact_version}"
+
+task incrementBuildnumber(type:Copy){
+	if (System.getenv("RELEASEMODE") == "true") {
+		ant.propertyfile(file: configFile) {
+			entry(key: 'mod_buildnumber', type: 'int', operation: '+', value: 001)
+		}
+	}
+}
+compileJava.dependsOn incrementBuildnumber
+
+sourceCompatibility = targetCompatibility = '1.8' // Need this here so eclipse task generates correctly.
+compileJava {
+    sourceCompatibility = targetCompatibility = '1.8'
+}
+
+minecraft {
+    version = config.minecraft_version + "-" + config.forge_version
+    runDir = "run"
+    replace "${version}", project.version
+    mappings = "snapshot_20170624"
+    // makeObfSourceJar = false // an Srg named sources jar is made by default. uncomment this to disable.
+}
+
+dependencies {
+}
+
+sourceSets {
+    main {
+        resources {
+            srcDir 'resources'
+        }
+        java {
+            srcDir 'src'
+        }
+    }
+}
+
+processResources {
+    // this will ensure that this task is redone when the versions change.
+    inputs.property "version", project.version
+    inputs.property "mcversion", project.minecraft.version
+
+    // replace stuff in mcmod.info, nothing else
+    from(sourceSets.main.resources.srcDirs) {
+        include 'mcmod.info'
+                
+        // replace version and mcversion
+        expand 'version':project.version, 'mcversion':project.minecraft.version
+    }
+        
+    // copy everything else except the mcmod.info
+    from(sourceSets.main.resources.srcDirs) {
+        exclude 'mcmod.info'
+    }
+}
+
+jar {
+    manifest {
+        // AT's here
+    }
+    finalizedBy reobfJar
+}
+
+// Create deobf dev jars
+task deobfJar(type: Jar) {
+    from sourceSets.main.output
+    classifier = 'deobf'
+	manifest {
+        // AT's here
+    }
+}
+
+task sourcesJar(type: Jar) {
+    from sourceSets.main.allJava
+    classifier = 'sources'
+}
+
+artifacts {
+    archives deobfJar
+    archives sourcesJar
+}
+
+lombok {
+	version = "1.16.18"
+	sha256 = ""
+}

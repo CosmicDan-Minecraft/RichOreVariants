@@ -1,0 +1,16 @@
+[
+{
+  "modid": "richorevariants",
+  "name": "RichOreVariants",
+  "description": "Adds richer versions of oreblocks that are harder to harvest and drop more ore. DIY worldgen.",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["CosmicDan"],
+  "credits": "Forge/FML and Mojang of course",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]
