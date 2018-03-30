@@ -1,0 +1,13 @@
+richorevariants.richoreprefix=Rich
+
+richorevariants.config.Multipliers=Multipliers
+richorevariants.config.Multipliers.tooltip=Multipliers/Rates of the rich variant blocks
+richorevariants.config.Multipliers.hardness=Hardness Multiplier
+richorevariants.config.Multipliers.hardness.tooltip=Hardness and blast resistance multiplier of the rich variants (relative to the base ore block).
+richorevariants.config.Multipliers.drop=Drop Amount
+richorevariants.config.Multipliers.drop.tooltip=Amount of base ore blocks to drop when rich variant is broken
+
+richorevariants.config.PreferredMods=Preferred Mods
+richorevariants.config.PreferredMods.tooltip=Set options related to mod preferences
+richorevariants.config.PreferredMods.modids=Preferred Mod ID's
+richorevariants.config.PreferredMods.modids.tooltip=Specify a list of preferred Mod ID's to base Rich Ores on. Determines their look, drops, and base hardness.

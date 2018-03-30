@@ -1,11 +1,19 @@
-.classpath
-.gradle/
-.idea/
-build/
-gradle/
-out/
-run/
+/?*
+/?*/
+!/gradle/
+!/scripts/
+!/src/
+!/.gitignore
+!/gradlew?*
+!**/?*.gradle
+!**/?*.txt
+!**/?*.md
+!**/?*.cmd
+!**/?*.bat
+!**/?*.iml
+!**/?*.properties
 
-.classpath
-*.iml
-
+# as per IntelliJ docs
+!.idea/
+**/.idea/workspace.xml
+**/.idea/tasks.xml

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-1320024977/CosmicLib.iml" filepath="$PROJECT_DIR$/.idea/modules/-1320024977/CosmicLib.iml" group="CosmicLib" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-1320024977/CosmicLib_api.iml" filepath="$PROJECT_DIR$/.idea/modules/-1320024977/CosmicLib_api.iml" group="CosmicLib" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-1320024977/CosmicLib_main.iml" filepath="$PROJECT_DIR$/.idea/modules/-1320024977/CosmicLib_main.iml" group="CosmicLib" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-1320024977/CosmicLib_test.iml" filepath="$PROJECT_DIR$/.idea/modules/-1320024977/CosmicLib_test.iml" group="CosmicLib" />
+      <module fileurl="file://$PROJECT_DIR$/RichOreVariants.iml" filepath="$PROJECT_DIR$/RichOreVariants.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/RichOreVariants_api.iml" filepath="$PROJECT_DIR$/.idea/modules/RichOreVariants_api.iml" group="RichOreVariants" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/RichOreVariants_main.iml" filepath="$PROJECT_DIR$/.idea/modules/RichOreVariants_main.iml" group="RichOreVariants" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/RichOreVariants_test.iml" filepath="$PROJECT_DIR$/.idea/modules/RichOreVariants_test.iml" group="RichOreVariants" />
+    </modules>
+  </component>
+</project>
