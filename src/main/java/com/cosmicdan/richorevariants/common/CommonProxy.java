@@ -14,10 +14,9 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 @Log4j2(topic = "RichOreVariants/CommonProxy")
 public class CommonProxy {
 	/**
-	 * Register block/items to GameRegistry, (tile) entities and assign oredict names
+	 * Register blocks/items to GameRegistry, (tile) entities ans assign oredict names
 	 */
 	public void preInit(FMLPreInitializationEvent event) {}
-
 
 	/**
 	 * Register worldgen, recipes, event handlers and send IMC messages

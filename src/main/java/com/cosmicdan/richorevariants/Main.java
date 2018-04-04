@@ -13,7 +13,10 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
 @SuppressWarnings({"StaticNonFinalField", "WeakerAccess"})
 @Log4j2(topic =  "RichOreVariants/Main")
-@Mod(modid = ModConstants.MODID, version = ModConstants.VERSION, dependencies = "required-after:cosmiclib", certificateFingerprint = "@jar_fingerprint@")
+@Mod(name = ModConstants.MODNAME, modid = ModConstants.MODID, version = ModConstants.VERSION,
+		dependencies =
+				"required-after:cosmiclib", 
+		certificateFingerprint = "@jar_fingerprint@")
 public class Main {
 	@ForgeDynamic
 	@Mod.Instance(ModConstants.MODID)

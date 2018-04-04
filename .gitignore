@@ -10,10 +10,4 @@
 !**/?*.md
 !**/?*.cmd
 !**/?*.bat
-!**/?*.iml
 !**/?*.properties
-
-# as per IntelliJ docs
-!.idea/
-**/.idea/workspace.xml
-**/.idea/tasks.xml
